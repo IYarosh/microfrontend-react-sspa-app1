@@ -7,7 +7,7 @@
         <script type="systemjs-importmap">
             {
                 "imports": {
-                    "microfrontend-react-sspa/app1": "http://localhost:8080/microfrontend-react-sspa-app1.js"
+                    "microfrontend-react-sspa/app1": "http://localhost:8081/microfrontend-react-sspa-app1.js"
                 }
             }
         </script>
@@ -18,8 +18,13 @@
     </head>
     <body>
         <div id="root"></div>
+        <div id="microfrontend-react-sspa/app1"></div>
+        <div id="microfrontend-react-sspa-app1"></div>
         <script>
-            System.import('microfrontend-react-sspa/app1');
+            System.import('microfrontend-react-sspa/app1').then(module => {
+                module.bootstrap();
+                module.mount({name: 'microfrontend-react-sspa-app1'});
+            });
         </script>
     </body>
 </html>
