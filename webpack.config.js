@@ -43,6 +43,9 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist')
+        contentBase: path.resolve(__dirname, 'dist'),
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
     }
 }
